@@ -1,0 +1,326 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Centraliza o conteúdo no centro da página */
+}
+  
+.trainAnimation {
+    position: relative;
+    /* Define a posição da animação do trem como relativa em relação ao seu contêiner */
+}
+  
+.content {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: #164668;
+    border-radius: 5%;
+    overflow: hidden;
+    /* Configurações do contêiner principal da animação, com um fundo azul escuro, bordas arredondadas e conteúdo escondido que exceda o contêiner */
+}
+
+/* Adiciona os prédios */
+.buildings {
+    position: relative;
+    background-color: rgba(5, 51, 83);
+    width: 80px;
+    height: 300px;
+    left: 0;
+    top: 150px;
+    box-shadow: 80px 40px rgba(5, 51, 83), 
+                120px -30px rgba(5, 51, 83), 
+                150px 20px rgba(5, 51, 83), 
+                190px -10px rgba(5, 51, 83, 0.5), 
+                30px -10px rgba(5, 51, 83, 0.5), 
+                220px 70px rgba(5, 51, 83), 
+                280px -25px rgba(5, 51, 83, 0.5), 
+                360px 20px rgba(5, 51, 83, 0.5), 
+                270px 30px rgba(5, 51, 83), 
+                320px 70px rgba(5, 51, 83);
+    /* Cria os prédios usando sombra de caixa para gerar múltiplos blocos de cores */
+}
+  
+.buildings:before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 15px;
+    background-color: rgb(252, 163, 17);
+    left: 13px;
+    top: 10px;
+    box-shadow: 23px 0px rgb(252, 163, 17, 0.7), 
+                47px 0px rgb(252, 163, 17, 0.2), 
+                0px 30px rgb(252, 163, 17, 0.2), 
+                23px 30px rgb(252, 163, 17, 0.2), 
+                47px 30px rgb(252, 163, 17), 
+                120px -30px rgb(252, 163, 17, 0.6), 
+                140px -30px rgb(252, 163, 17), 
+                160px -30px rgb(252, 163, 17, 0.2), 
+                120px 0px rgb(252, 163, 17, 0.2), 
+                140px 0px rgb(252, 163, 17, 0.2), 
+                160px 0px rgb(252, 163, 17, 0.2), 
+                270px 30px rgb(252, 163, 17, 0.2), 
+                290px 30px rgb(252, 163, 17, 0.2), 
+                310px 30px rgb(252, 163, 17, 0.5);
+    /* Adiciona janelas iluminadas aos prédios usando sombra de caixa */
+}
+  
+.buildings:after {
+    content: "";
+    position: absolute;
+    background-color: #041c2d;
+    width: 100px;
+    height: 250px;
+    top: 90px;
+    box-shadow: 100px 30px #041c2d, 
+                150px -10px #041c2d, 
+                230px 50px #041c2d, 
+                300px -20px #041c2d;
+    /* Cria mais prédios com sombra de caixa em diferentes posições */
+}
+  
+.windows {
+    position: absolute;
+    background-color: rgb(252, 163, 17);
+    width: 20px;
+    height: 25px;
+    left: 310px;
+    top: 230px;
+    box-shadow: 30px 0 rgb(252, 163, 17), 
+                60px 0 rgb(252, 163, 17, 0.3), 
+                30px 40px rgb(252, 163, 17, 0.3), 
+                60px 40px rgb(252, 163, 17), 
+                -140px 20px rgb(252, 163, 17), 
+                -100px 20px rgb(252, 163, 17, 0.3), 
+                -100px 60px rgb(252, 163, 17), 
+                -250px 30px rgb(252, 163, 17, 0.8), 
+                -250px 70px rgb(252, 163, 17, 0.2), 
+                -290px 30px rgb(252, 163, 17, 0.2);
+    /* Adiciona mais janelas aos prédios */
+}
+  
+.windows:before {
+    content: "";
+    position: absolute;
+    background-color: rgb(252, 163, 17, 0.1);
+    width: 25px;
+    height: 7px;
+    left: -73px;
+    top: -80px;
+    box-shadow: 50px 15px rgb(252, 163, 17, 0.1), 
+                125px 40px rgb(252, 163, 17, 0.1), 
+                125px 55px rgb(252, 163, 17, 0.1);
+    /* Mais detalhes de janelas com uma leve opacidade */
+}
+  
+.windows:after {
+    content: "";
+    position: absolute;
+    background-color: rgb(252, 163, 17);
+    width: 15px;
+    height: 20px;
+    top: -50px;
+    left: -102px;
+    box-shadow: -115px 20px rgb(252, 163, 17), 
+                47px 50px rgb(252, 163, 17);
+    animation: flash 4s ease infinite alternate;
+    /* Adiciona um efeito de piscar nas janelas */
+}
+
+.bridge {
+    position: absolute;
+    z-index: 4;
+    width: 400px;
+    height: 5px;
+    top: 280px;
+    border-bottom: 5px solid #333;
+    border-top: 2px solid #333;
+    /* Estilo da ponte, com bordas superior e inferior */
+}
+  
+.bridge:after, .bridge:before {
+    content: "";
+    position: absolute;
+    background-color: #333;
+    /* Adiciona suportes na ponte */
+}
+  
+.bridge:before {
+    width: 2px;
+    height: 5px;
+    left: 60px;
+    box-shadow: 110px 0px #333, 
+                160px 0px #333, 
+                270px 0px #333, 
+                320px 0px #333;
+    /* Linhas verticais da ponte */
+}
+  
+.bridge:after {
+    width: 15px;
+    height: 150px;
+    left: 110px;
+    box-shadow: 160px 0 #333;
+    /* Suportes verticais da ponte */
+}
+  
+.train {
+    position: absolute;
+    z-index: 3;
+    animation: move 6s linear infinite;
+    /* Configura o trem para se mover continuamente pela tela */
+}
+  
+.carOne {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background-color: #9e2a2b;
+    left: 220px;
+    top: -50px;
+    border-radius: 0 30px 0 0;
+    overflow: hidden;
+    box-shadow: inset 0 -5px #540b0e;
+    /* Estiliza o primeiro vagão do trem */
+}
+  
+.carOne:before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 15px;
+    background-color: #540b0e;
+    top: 5px;
+    left: 60px;
+    /* Detalhe do vagão */
+}
+  
+.carOne:after {
+    content: "";
+    position: absolute;
+    background-color: #540b0e;
+    width: 40px;
+    height: 7px;
+    left: 10px;
+    top: 10px;
+    /* Outro detalhe do vagão */
+}
+  
+.carTwo {
+    position: absolute;
+    height: 30px;
+    width: 90px;
+    background-color: #9e2a2b;
+    left: 125px;
+    top: -50px;
+    box-shadow: inset 0 -5px #540b0e;
+    overflow: hidden;
+    /* Estiliza o segundo vagão do trem */
+}
+  
+.carTwo:before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 15px;
+    background-color: #540b0e;
+    top: 5px;
+    left: 30px;
+    /* Detalhe do vagão */
+}
+  
+.carTwo:after {
+    content: "";
+    position: absolute;
+    background-color: #540b0e;
+    width: 20px;
+    height: 7px;
+    left: 10px;
+    top: 10px;
+    /* Outro detalhe do vagão */
+}
+  
+.carThree {
+    position: absolute;
+    height: 40px;
+    width: 110px;
+    background-color: #9e2a2b;
+    left: 0px;
+    top: -60px;
+    border-radius: 0 30px 0 0;
+    overflow: hidden;
+    box-shadow: inset 0 -5px #540b0e;
+    /* Estiliza o terceiro vagão do trem */
+}
+  
+.carThree:before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 15px;
+    background-color: #540b0e;
+    top: 5px;
+    left: 40px;
+    /* Detalhe do vagão */
+}
+  
+.carThree:after {
+    content: "";
+    position: absolute;
+    background-color: #540b0e;
+    width: 30px;
+    height: 7px;
+    left: 10px;
+    top: 10px;
+    /* Outro detalhe do vagão */
+}
+  
+.wheels {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #333;
+    top: -20px;
+    left: 228px;
+    box-shadow: 30px 0 #333, 
+                120px 0 #333, 
+                70px 0 #333, 
+                -20px 0 #333, 
+                220px 0 #333, 
+                300px 0 #333;
+    /* Cria as rodas do trem com um efeito de sombra */
+}
+
+.wheels:after {
+    content: "";
+    position: absolute;
+    background-color: #333;
+    width: 90px;
+    height: 3px;
+    left: 40px;
+    top: 3px;
+    /* Cria os eixos que conectam as rodas */
+}
+
+/* Animação do movimento do trem */
+@keyframes move {
+    from {
+        transform: translateX(-400px);
+    }
+    to {
+        transform: translateX(400px);
+    }
+}
+
+/* Animação para as janelas que piscam */
+@keyframes flash {
+    0%, 100% {
+        background-color: rgb(252, 163, 17);
+    }
+    50% {
+        background-color: rgba(252, 163, 17, 0.1);
+    }
+}
