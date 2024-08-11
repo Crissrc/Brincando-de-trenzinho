@@ -6,7 +6,7 @@ ncionalidades
 
 - Trem em Movimento: Um trem com três vagões que se move da direita para a esquerda na tela.
 - Cenário de Cidade: Prédios e janelas iluminadas, criando uma atmosfera de cidade à noite.
-- Ponte:** O trem se move sobre uma ponte simples.
+- Ponte: O trem se move sobre uma ponte simples.
 - Lua e Estrelas: A animação inclui uma lua com efeito de brilho e estrelas cintilantes.
 
 Como Funciona
